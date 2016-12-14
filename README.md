@@ -16,7 +16,12 @@ A crossplatform client to send notification to [OneSignal][2] using their REST A
 	Fix : JSON.stringify()
 
 	3. "{"errors":["  Notifications must have English language content"]}"
-	Fix :  add 'contents' near 'app_id' with your message string
+	
+	Fix :  add 'contents' near 'app_id' with your message string          
+
+
+
+Cheers.
 
 
 
