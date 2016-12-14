@@ -5,6 +5,7 @@ console.log('OneSignal Desktop : initialising')
 nw.Window.open(	'../../app/index.html', 
 				{
 					"title":"Oops!",
+					"icon": "icon.png",
 					"frame": true,
 					"width": 400,
 					"height": 500,
