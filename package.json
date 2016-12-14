@@ -1,0 +1,5 @@
+{
+  "name": "OneSignalDesktop",
+  "main": "app/js/appEntry.js",
+  "dependencies": {}
+}

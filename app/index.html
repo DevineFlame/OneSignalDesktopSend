@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OneSignal Desktop</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.css">
+    <script src="jquerymobile/jquery-1.11.1.js"></script>
+    <script src="jquerymobile/jquery.mobile-1.4.5.js"></script>
+
+    <script src="js/appEntryJQ.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+
+	<div id="pageOne" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h1>Send Notification</h1>
+        </div>
+ 
+        <div role="main" class="ui-content">
+            <form>
+                <label for="id-msg-notification">Notification Message:</label>
+                <textarea name="id-msg-notification" id="id-msg-notification"></textarea>
+                <button id="btnSend" class="ui-btn ui-corner-all">Send</button>
+            </form>
+            
+        </div>
+ 
+        <div data-role="footer" data-position="fixed">
+            <h4>Powered By OneSignal</h4>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
