@@ -1,5 +1,7 @@
 {
-  "name": "OneSignalDesktop",
+  "name": "RayOneSignal",
   "main": "app/js/appEntry.js",
+  "description": "A desktop application to send PushNotification through OneSignal",
+	"version": "0.0.1",
   "dependencies": {}
 }

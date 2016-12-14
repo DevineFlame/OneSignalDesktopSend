@@ -12,23 +12,63 @@
 </head>
 <body>
 
-	<div id="pageOne" data-role="page">
-        <div data-role="header" data-position="fixed">
+    
+	<div id="pageOne" data-role="page" data-title="OneSignal Desktop">
+        <div data-role="header" data-position="fixed" data-theme="b">
             <h1>Send Notification</h1>
+            <button id="btnSend" class="ui-btn ui-btn-right ui-icon-action ui-btn-icon-right">Send</button>
         </div>
  
         <div role="main" class="ui-content">
-            <form>
-                <label for="id-msg-notification">Notification Message:</label>
-                <textarea name="id-msg-notification" id="id-msg-notification"></textarea>
-                <button id="btnSend" class="ui-btn ui-corner-all">Send</button>
-            </form>
+            <textarea id="id-msg-notification" placeholder="Message to send. Mandatory"></textarea>
+            <input id="id-msg-title" type="text" placeholder="Message Title. Optional."></input>
             
         </div>
  
-        <div data-role="footer" data-position="fixed">
-            <h4>Powered By OneSignal</h4>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>OneSignal</h4>
         </div>
+
+        <!-- Popups -->
+        <div id="id-popupMandatory" data-role="popup" class="ui-content" data-theme="b">
+            <div style="padding:10px 20px;">
+                <h3 style="color:#FF0000">
+                    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-alert ui-btn-icon-notext ui-btn-b ui-btn-inline">Alert</a>
+                    Empty Message!
+                </h3>
+
+                <p>
+                    Message is mandatory. Can not leave the message field empty. Type your message and send again.
+                </p>
+            </div>
+        </div>
+
+        <div id="id-popupSuccess" data-role="popup" class="ui-content" data-theme="a">
+            <div style="padding:10px 20px;">
+                <h3 style="color:#00FF00">Sent.</h3>
+                <p>
+                    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-a ui-btn-inline">Check</a>
+                    Your message is sent successfully.
+                </p>
+            </div>
+        </div>
+        <div id="id-popupFail" data-role="popup" class="ui-content" data-theme="b">
+            <div style="padding:10px 20px;">
+                <h3 style="color:#FF0000">
+                    Opps! Fail.
+                </h3>
+                <p>
+                    Could not send your message.
+                </p>
+                <div style="padding:0px 0px;">
+                    <h4>
+                        <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-alert ui-btn-icon-notext ui-btn-b ui-btn-inline">Alert</a>
+                        Are you sure, you are connected to internet?
+                    </h4>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     

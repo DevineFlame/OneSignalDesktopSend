@@ -1,34 +1,42 @@
 // Application comes from UI
 // OneSignal : https://www.npmjs.com/package/onesignal
 
+
 $(function(){
-	var appId = 'your onesignal app-id';
-	var apiKey = 'your onesignal APIkey';
+	var appId = 'onesignal_appid';
+	var apiKey = 'onesignal_apikey';
 
 	//var thisRef = this;
-
-	// Errors and fixes
-	// 1. {"errors":["app_id not found. You may be missing a Content-Type: application/json header."]}
-	// 1. Add app_id in data and Content-Type in header
-	// 2. responseText : "{"status":400,"error":"There was a problem in the JSON you submitted: unexpected character at line 1, column 1 [parse.c:652]"}"
-	// 2. Fix : JSON.stringify()
-	// 3. "{"errors":["  Notifications must have English language content"]}"
-	// 3. Fix :  add 'contents' near 'app_id' with your message string
+	//SaumyaSignal.initialise();
 
 	var onSendClick = function(){
 
-		var messageToSend = $("#id-msg-notification").val();
+        var messageToSend = $("#id-msg-notification").val();
+		var messageToSendTitle = $("#id-msg-title").val();
+        //
+        var u = 'https://onesignal.com/api/v1/notifications';
+        var headerObj = {
+            'Content-Type':'application/json; charset=utf-8',
+            'Authorization':'Basic '+apiKey
+        };
+        var dataObj = {
+            'app_id':appId,
+            'contents': {"en": messageToSend},
+            "included_segments":["All"]
+        };
 
-		var u = 'https://onesignal.com/api/v1/notifications';
-		var headerObj = {
-			'Content-Type':'application/json; charset=utf-8',
-			'Authorization':'Basic '+apiKey
-		};
-		var dataObj = {
-			'app_id':appId,
-			'contents': {"en": messageToSend},
-			"included_segments":["All"]
-		};
+        // check whether title is empty
+        if(messageToSendTitle===''){
+            // Do nothing, its already set in the default above
+        }else{
+            dataObj = {
+                'app_id':appId,
+                'contents': {"en": messageToSend},
+                'headings':{"en":messageToSendTitle},
+                "included_segments":["All"]
+            };
+        }
+        // Finally send the message
 		$.ajax({
                 type:"post",
                 url:u,
@@ -37,17 +45,29 @@ $(function(){
                 headers:headerObj,
                 success:function(result){          
                     console.log('SUCCESS');
-                    console.log(result)
+                    console.log(result);
+
+                    $('#id-popupSuccess').popup("open",{"transition":"slide"});
                 },
                 error:function(data){
                     console.log('ERROR : getAllBands : ');
-                    console.log(data);           
+                    console.log(data);  
+
+                    $('#id-popupFail').popup("open",{"transition":"flow"});         
                 }
         });
 	}
     //
     $("#btnSend").on('click',function(event, ui){
-		onSendClick();
+    	// check for data
+    	var messageToSend = $("#id-msg-notification").val();
+    	if(messageToSend===''){
+    		//alert('Type a message to send');
+    		$('#id-popupMandatory').popup("open",{"transition":"flow"});
+    	}else{
+    		onSendClick();
+    	}
 	})
     //
 });
+
