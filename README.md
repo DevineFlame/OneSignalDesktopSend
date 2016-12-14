@@ -1,7 +1,7 @@
 OneSignal Desktop Client
 ==========================
 
-A crossplatform client to send notification to [OneSignal][2] using their REST API. It uses [NodeWebkit][1] / [NW.js][1	] projec for making the desktop client.          
+A crossplatform client to send notification to [OneSignal][2] using their REST API. It uses [NodeWebkit][1] / [NW.js][1] projec for making the desktop client.          
 
 
 
