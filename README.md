@@ -3,7 +3,7 @@ OneSignal Desktop Client
 
 A crossplatform client to send notification to [OneSignal][2] using their REST API. It uses [NodeWebkit][1] / [NW.js][1] projec for making the desktop client.          
 
-
+The packaging is different for different Operating Systems. Refer the official documentation.
 
 #### Errors I encounter and the fixes
 
